@@ -24,5 +24,6 @@ SELECT DISTINCT teachers.* FROM `teachers` INNER JOIN course_teacher ON teachers
 
 7. BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
 
-
+SELECT COUNT(exams.id) AS N_volte_esame, courses.name, students.name, students.surname
+FROM `students` JOIN exam_student ON students.id = exam_student.student_id JOIN exams ON exam_student.exam_id = exams.id JOIN courses ON exams.course_id = courses.id GROUP BY exams.course_id, students.id ORDER by students.surname ASC,students.name ASC;
 
